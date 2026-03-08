@@ -75,7 +75,7 @@ class DQNAgent(nn.Module):
 
             if self.use_double_q:
                 # TODO(Section 2.5): implement double-Q target action selection
-                next_action = None
+                next_action = self.critic(next_obs).argmax(dim=1)
             else:
                 next_action = all_next_q_values.argmax(dim=1)
 
